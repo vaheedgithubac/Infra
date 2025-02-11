@@ -6,7 +6,7 @@ resource "aws_instance" "ec2_instance" {
   subnet_id                   = var.subnet_id
   associate_public_ip_address = var.associate_public_ip
   iam_instance_profile        = var.instance_profile
-  user_data                   = file("${path.module}/user-data.sh")
+  user_data                   = var.nat_instance ? file("${path.module}/user-data.sh") : var.user_data
   
   root_block_device {
     delete_on_termination = true
