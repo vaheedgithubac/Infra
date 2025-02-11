@@ -11,7 +11,7 @@ resource "aws_instance" "ec2_instance" {
   root_block_device {
     delete_on_termination = true
     encrypted             = false
-    volume_size           = var.volume_size
+    volume_size           = var.root_volume_size
     volume_type           = "gp2"
     tags = {
       Name         = "ec2_production"
