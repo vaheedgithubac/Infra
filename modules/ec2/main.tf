@@ -15,8 +15,8 @@ resource "aws_instance" "ec2_instance" {
     volume_type           = "gp2"
     tags = {
       Name          = local.root_volume_final_name 
-      project_name  = var.project_name
-      environment   = var.env
+      Project_Name  = var.project_name
+      Environment   = var.env
     }
   }
 
