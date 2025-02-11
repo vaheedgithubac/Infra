@@ -1,6 +1,6 @@
-#######################
-# Mandatory variables
-#######################
+################################################################
+#                    Mandatory variables                      # 
+################################################################
 variable "key_name" {}
 variable "ami_id" {}
 variable "sg_id" {}
@@ -8,11 +8,10 @@ variable "subnet_id" {}
 variable "project_name" {}
 variable "env" {}
 variable "common_tags" { type = map }
-###############################################
 
-#################################################################
-# Default setting variables, you can overwrite them while calling
-#################################################################
+#####################################################################################################
+#                Default setting variables, you can overwrite them while calling                    #
+#####################################################################################################
 variable "nat_instance" { default = false }
 variable "associate_public_ip" { default = false }
 variable "ec2_tags" { default = "" } 
