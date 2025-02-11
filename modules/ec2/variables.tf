@@ -1,8 +1,8 @@
 ################################################################
 #                    Mandatory variables                       # 
 ################################################################
-variable "key_name" {}
 variable "ami_id" {}
+variable "key_name" {}
 variable "sg_id" {}
 variable "subnet_id" {}
 variable "project_name" {}
