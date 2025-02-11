@@ -13,6 +13,7 @@ resource "aws_instance" "ec2_instance" {
     encrypted             = false
     volume_size           = var.root_volume_size
     volume_type           = "gp2"
+
     tags = {
       Name          = local.root_volume_final_name 
       Project_Name  = var.project_name
