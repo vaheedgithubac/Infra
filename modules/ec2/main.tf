@@ -26,8 +26,11 @@ resource "aws_instance" "ec2_instance" {
       delete = "10m"
   }
   
-  tags = {
-    Name      = "EC2-Instance"
-    Terraform = "True"
-  }
+  tags = merge(
+      var.common_tags,
+      var.ec2_tags,
+      {
+          Name = local.sg_final_name
+      }
+    )
 }
