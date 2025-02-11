@@ -1,6 +1,6 @@
 variable "project_name" {}
 
-variable "environment" {}
+variable "env" {}
 
 variable "sg_name"{}
 
