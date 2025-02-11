@@ -13,7 +13,7 @@ variable "common_tags" {
     type = map
 }
 
-################################### Default Variables   ########################################
+###################################  Default Variables   ########################################
 variable "sg_tags" {
     default = {}
 }
