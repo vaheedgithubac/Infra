@@ -30,7 +30,7 @@ resource "aws_instance" "ec2_instance" {
       var.common_tags,
       var.ec2_tags,
       {
-          Name = local.ec2_final_name 
+          Name = local.resorce_final_name 
       }
     )
 }
