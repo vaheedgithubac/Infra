@@ -13,6 +13,7 @@ variable "common_tags" { type = map }
 ################################################
 # Default setting variables, you can change them
 ################################################
+variable "associate_public_ip" { default = false }
 variable "ec2_tags" { default = "" } 
 variable "iam_instance_profile" { default = "" }
 variable "user_data" { default = "" }
