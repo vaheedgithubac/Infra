@@ -1,15 +1,19 @@
-variable "project_name" {
-    default = "expense"
-}
+variable "project_name" {}
 
-variable "environment" {
-    default = "dev"
-}
+variable "env" {}
+
+variable "sg_name" {}
+
+variable "sg_description" {}
+
+variable "vpc_id" {}
 
 variable "common_tags" {
-    default = {
-        Project = "expense"
-        Environment = "dev"
-        Terraform = "true"
-    }
+  type = map(any)
+
+  default = {
+    Project_Name = "expense"
+    Environment  = "dev"
+    Terraform    = true
+  }
 }
