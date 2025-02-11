@@ -1,3 +1,4 @@
+##################################  Mandatory Variables  ####################################
 variable "project_name" {}
 
 variable "env" {}
@@ -12,6 +13,7 @@ variable "common_tags" {
     type = map
 }
 
+################################### Default Variables   ########################################
 variable "sg_tags" {
     default = {}
 }
