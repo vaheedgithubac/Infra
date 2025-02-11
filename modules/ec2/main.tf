@@ -4,7 +4,7 @@ resource "aws_instance" "ec2_instance" {
   key_name                    = var.public_key_name
   vpc_security_group_ids      = [var.sg_id]
   subnet_id                   = var.subnet_id
-  associate_public_ip_address = var.associate_public_ip
+  associate_public_ip_address = var.associate_public_ip_address
   iam_instance_profile        = var.iam_instance_profile
   user_data                   = var.nat_instance ? file("${path.module}/user-data.sh") : var.user_data
   
