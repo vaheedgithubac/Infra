@@ -14,8 +14,8 @@ variable "common_tags" { type = map }
 #####################################################################################################
 variable "nat_instance" { default = false }
 variable "associate_public_ip" { default = false }
-variable "ec2_tags" { default = "" } 
-variable "iam_instance_profile" { default = {} }
+variable "ec2_tags" { default = {} } 
+variable "iam_instance_profile" { default = "" }
 variable "user_data" { default = "" }
 
 variable "root_volume_size" {
