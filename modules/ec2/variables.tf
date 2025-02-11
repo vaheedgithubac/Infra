@@ -1,0 +1,37 @@
+#######################
+# Mandatory variables
+#######################
+variable "key_name" {}
+variable "ami_id" {}
+variable "sg_id" {}
+variable "subnet_id" {}
+variable "project_name" {}
+variable "env" {}
+variable "common_tags" { type = map }
+###############################################
+
+################################################
+# Default setting variables, you can change them
+################################################
+variable "ec2_tags" { default = "" } 
+variable "iam_instance_profile" { default = "" }
+variable "user_data" { default = "" }
+
+variable "root_volume_size" {
+  type = number
+  default = 8
+}
+
+variable "instance_type" {
+    default = "t2.micro"
+    validation {
+      condition     = contains(["t2.micro", "t2.small", "t2.medium"], var.instance_type)
+        error_message = "Valid values for instance type are: t2.small t2.medium t2.micro"
+    } 
+}
+
+
+
+
+
+
