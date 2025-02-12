@@ -100,7 +100,7 @@ resource "aws_route" "public" {
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.internet_gateway.id
 
-  # depends_on = [aws_route_table.public]
+   depends_on = [aws_route_table.public]
 }
 
 # associate public route table to public subnet
