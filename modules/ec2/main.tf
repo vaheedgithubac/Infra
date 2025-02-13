@@ -8,7 +8,9 @@ resource "aws_instance" "ec2_instance" {
   iam_instance_profile        = var.iam_instance_profile
   user_data                   = var.user_data
   # user_data                   = var.nat_instance ? file("${path.module}/user-data.sh") : var.user_data
-  
+
+  source_dest_check           = is_nat_instance ? true : false
+
   root_block_device {
     delete_on_termination = true
     encrypted             = false
