@@ -128,11 +128,21 @@ resource "aws_route_table_association" "public" {
   }
 }
 
-resource "aws_route_table_association" "private" {
-  count = length(var.private_subnet_ids) > 0 ? length(var.private_subnet_ids) : 0
+# ---------------------------------------------------------------------------------- #
 
-  subnet_id      = var.private_subnet_ids[count.index]    #aws_subnet.private[count.index].id
+resource "aws_route_table_association" "private" {
+  count = length(var.private_subnet_cidr) > 0 ? length(var.private_subnet_cidr) : 0
+
+  subnet_id      = aws_subnet.private[count.index].id   #aws_subnet.private[count.index].id
   route_table_id = aws_route_table.private.id
 }
+
+resource "aws_route_table_association" "private" {
+  count = length(var.database_subnet_cidr) > 0 ? length(var.database_subnet_cidr) : 0
+
+  subnet_id      = aws_subnet.database[count.index].id    #aws_subnet.database[count.index].id
+  route_table_id = aws_route_table.private.id
+}
+
 
 
