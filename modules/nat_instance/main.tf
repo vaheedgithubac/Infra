@@ -5,7 +5,7 @@ resource "aws_route_table" "private" {
   tags = merge(
     var.common_tags,
     {
-      Name = "${var.resource_name}-private-RT"
+      Name = "${local.resource_name}-private-RT"
     }
   )
   # depends_on = [aws_subnet.private]
@@ -15,13 +15,15 @@ resource "aws_route_table" "private" {
 resource "aws_route" "private_outbound_nat_route" {
   route_table_id         = aws_route_table.private.id
   destination_cidr_block = "0.0.0.0/0"
-  network_interface_id   = aws_instance.nat_instance.primary_network_interface_id
+  network_interface_id   = module.ec2.primary_network_interface_id  # aws_instance.nat_instance.primary_network_interface_id
 }
 
 resource "aws_route_table_association" "private" {
-  count = length(var.private_subnet_cidr) > 0 ? length(var.private_subnet_cidr) : 0
+  count = length(var.private_subnet_ids) > 0 ? length(var.private_subnet_ids) : 0
 
-  subnet_id      = aws_subnet.private[count.index].id
+  subnet_id      = var.private_subnet_ids[count.index]    #aws_subnet.private[count.index].id
   route_table_id = aws_route_table.private.id
 }
+
+
 
