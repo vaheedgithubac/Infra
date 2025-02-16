@@ -12,7 +12,10 @@ variable "common_tags" { type = map }
 #####################################################################################################
 #                Default setting variables, you can overwrite them while calling                    #
 #####################################################################################################
-variable "is_nat_instance" { default = false }
+variable "is_nat_instance" {
+    type = bool
+    default = false 
+}
 variable "associate_public_ip_address" { default = false }
 variable "ec2_tags" { default = {} } 
 variable "iam_instance_profile" { default = "" }
