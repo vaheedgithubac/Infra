@@ -94,6 +94,19 @@ resource "aws_route_table" "public" {
   depends_on = [aws_subnet.public]
 }
 
+# create private route table 
+resource "aws_route_table" "private" {
+  vpc_id = var.vpc_id
+
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "${local.resource_name}-private-RT"
+    }
+  )
+  # depends_on = [aws_subnet.private]
+}
+
 # always add route seperately
 resource "aws_route" "public" {
   route_table_id         = aws_route_table.public.id
@@ -113,6 +126,13 @@ resource "aws_route_table_association" "public" {
    lifecycle {
     create_before_destroy = true  # Ensures new association is created before destroying the old one
   }
+}
+
+resource "aws_route_table_association" "private" {
+  count = length(var.private_subnet_ids) > 0 ? length(var.private_subnet_ids) : 0
+
+  subnet_id      = var.private_subnet_ids[count.index]    #aws_subnet.private[count.index].id
+  route_table_id = aws_route_table.private.id
 }
 
 
