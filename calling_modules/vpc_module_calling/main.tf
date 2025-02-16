@@ -1,6 +1,7 @@
 
 module "vpc" {
-  source =  # "./modules/vpc"  Give the path to VPC MODULE accordingly
+  source = "git::https://github.com/vaheedgithubac/Infra//modules/vpc" # Give the path to VPC MODULE accordingly
+
 
   #region      = var.region
 
