@@ -10,7 +10,7 @@ resource "aws_instance" "ec2_instance" {
   # user_data                   = var.user_data
 
   # If 'source_dest_check = false' --> NAT Instance. # If 'source_dest_check = true' --> Normal Instance
-  source_dest_check           = var.is_nat_instance ? true : false
+  source_dest_check           = var.is_nat_instance ? false : true
 
   root_block_device {
     delete_on_termination = true
