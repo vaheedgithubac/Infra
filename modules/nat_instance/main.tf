@@ -11,9 +11,6 @@
   # depends_on = [aws_subnet.private]
 # }
 
-module "vpc" {
-  source = "git::https://github.com/vaheedgithubac/Infra//modules/vpc"
-}
 
 # Route table entry to forward traffic to NAT instance (This is the main step)
 resource "aws_route" "private_outbound_nat_route" {
