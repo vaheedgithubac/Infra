@@ -49,4 +49,21 @@ resource "aws_ssm_parameter" "database_subnet_ids" {
   value = join(",", aws_subnet.database.*.id)
 }
 
+resource "aws_ssm_parameter" "public_route_table_id" {
+  type  = "String"
+  name  = "/${var.project_name}/${var.env}/public_route_table_id"
+  value = aws_route_table.public.id
+}
+
+resource "aws_ssm_parameter" "private_route_table_id" {
+  type  = "String"
+  name  = "/${var.project_name}/${var.env}/private_route_table_id"
+  value = aws_route_table.private.id
+}
+
+resource "aws_ssm_parameter" "database_route_table_id" {
+  type  = "String"
+  name  = "/${var.project_name}/${var.env}/database_route_table_id"
+  value = aws_route_table.database.id
+}
 
