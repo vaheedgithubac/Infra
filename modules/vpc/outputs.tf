@@ -1,4 +1,3 @@
-
 output "project_name" {
   value = var.project_name
 }
@@ -19,4 +18,3 @@ output "private_subnet_ids" {
 output "internet_gateway" {
   value = aws_internet_gateway.internet_gateway
 }
-
