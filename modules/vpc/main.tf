@@ -96,7 +96,7 @@ resource "aws_route_table" "public" {
 
 # create private route table 
 resource "aws_route_table" "private" {
-  vpc_id = var.vpc_id
+  vpc_id = aws_vpc.vpc.id
 
   tags = merge(
     var.common_tags,
@@ -109,7 +109,7 @@ resource "aws_route_table" "private" {
 
 # create database route table 
 resource "aws_route_table" "database" {
-  vpc_id = var.vpc_id
+  vpc_id = aws_vpc.vpc.id
 
   tags = merge(
     var.common_tags,
