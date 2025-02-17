@@ -16,7 +16,7 @@ resource "aws_ssm_parameter" "vpc_id" {
 resource "aws_ssm_parameter" "public_subnet_cidr" {
   type  = "StringList"
   name  = "/${var.project_name}/${var.env}/public_subnet_cidr"
-  value       = join(",", var.public_subnet_cidr)
+  value = join(",", var.public_subnet_cidr)
 }
 
 resource "aws_ssm_parameter" "public_subnet_ids" {
@@ -28,7 +28,7 @@ resource "aws_ssm_parameter" "public_subnet_ids" {
 resource "aws_ssm_parameter" "private_subnet_cidr" {
   type  = "StringList"
   name  = "/${var.project_name}/${var.env}/private_subnet_cidr"
-  value       = join(",", var.private_subnet_cidr)
+  value = join(",", var.private_subnet_cidr)
 }
 
 resource "aws_ssm_parameter" "private_subnet_ids" {
