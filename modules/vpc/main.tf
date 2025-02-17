@@ -107,6 +107,19 @@ resource "aws_route_table" "private" {
   # depends_on = [aws_subnet.private]
 }
 
+# create database route table 
+resource "aws_route_table" "database" {
+  vpc_id = var.vpc_id
+
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "${local.resource_name}-database-RT"
+    }
+  )
+  # depends_on = [aws_subnet.database]
+}
+
 # always add route seperately
 resource "aws_route" "public" {
   route_table_id         = aws_route_table.public.id
@@ -118,7 +131,7 @@ resource "aws_route" "public" {
 
 # associate public route table to public subnet
 resource "aws_route_table_association" "public" {
-  count = length(var.public_subnet_cidr)
+  count = length(var.public_subnet_cidr) > 0 ? length(var.public_subnet_cidr) : 0
   
   subnet_id      = aws_subnet.public[count.index].id                      
   route_table_id = aws_route_table.public.id
@@ -130,6 +143,7 @@ resource "aws_route_table_association" "public" {
 
 # ---------------------------------------------------------------------------------- #
 
+# associate private route table to private subnet
 resource "aws_route_table_association" "private" {
   count = length(var.private_subnet_cidr) > 0 ? length(var.private_subnet_cidr) : 0
 
@@ -137,11 +151,12 @@ resource "aws_route_table_association" "private" {
   route_table_id = aws_route_table.private.id
 }
 
-resource "aws_route_table_association" "private" {
+# associate database route table to database subnet
+resource "aws_route_table_association" "database" {
   count = length(var.database_subnet_cidr) > 0 ? length(var.database_subnet_cidr) : 0
 
   subnet_id      = aws_subnet.database[count.index].id    #aws_subnet.database[count.index].id
-  route_table_id = aws_route_table.private.id
+  route_table_id = aws_route_table.database.id
 }
 
 
