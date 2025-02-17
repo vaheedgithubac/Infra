@@ -1,3 +1,4 @@
+# VPC-MODULE Calling
 module "vpc" {
   source = "git::https://github.com/vaheedgithubac/Infra//modules/vpc"  # Give the path to VPC MODULE accordingly
 
@@ -15,5 +16,4 @@ module "vpc" {
   public_subnet_cidr   = ["10.100.1.0/24", "10.100.2.0/24"]
   private_subnet_cidr  = ["10.100.11.0/24", "10.100.12.0/24"]
   database_subnet_cidr = ["10.100.31.0/24", "10.100.32.0/24"]
-
 }
