@@ -17,7 +17,7 @@ resource "aws_db_instance" "db_instance" {
   engine                  = var.engine
   engine_version          = var.engine_version
   multi_az                = var.multi_az
-  identifier              = var.identifier
+  identifier              = local.identifier
   username                = var.username
   password                = var.password
   instance_class          = var.instance_class
