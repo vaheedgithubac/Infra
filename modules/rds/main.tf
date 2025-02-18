@@ -23,7 +23,7 @@ resource "aws_db_instance" "db_instance" {
   instance_class          = var.instance_class
   allocated_storage       = var.allocated_storage
   db_subnet_group_name    = aws_db_subnet_group.database_subnet_group.name
-  vpc_security_group_ids  = module.mysql_sg.sg_id   #var.vpc_security_group_ids
+  vpc_security_group_ids  = [module.mysql_sg.sg_id]   #var.vpc_security_group_ids
   availability_zone       = var.availability_zone
   db_name                 = var.db_name
   skip_final_snapshot     = var.skip_final_snapshot
