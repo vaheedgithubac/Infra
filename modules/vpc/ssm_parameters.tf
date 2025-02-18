@@ -1,5 +1,5 @@
 # Storing parameters in AWS SSM PARAMETER STORE 
-resource "aws_ssm_parameter" "azs" {
+resource "aws_ssm_parameter" "availability_zones" {
   type  = "StringList"
   name  = "/${var.project_name}/${var.env}/availability_zones"
   value = join(",", local.azs)
