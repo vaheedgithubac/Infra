@@ -4,7 +4,7 @@ module "mysql_sg" {
 
   vpc_id = var.vpc_id
   sg_name = var.sg_name
-  description = var.sg_description
+  sg_description = var.sg_description
 
   project_name = var.project_name
   env = var.env
