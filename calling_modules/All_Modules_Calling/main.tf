@@ -27,10 +27,10 @@ module "nat_instance" {
   vpc_cidr                                = data.aws_ssm_parameter.vpc_cidr.value
   ami_id                                  = "ami-0ddfba243cbee3768" #"ami-0c50b6f7dc3701ddd"
   public_key_name                         = "mumbai-1"
-  public_subnet_ID_to_launch_nat_instance = local.public_subnet_ids[0] #module.vpc.public_subnet_ids[0]
-  public_subnet_cidr                      = local.public_subnet_cidr   #var.public_subnet_cidr # for private instance sg purpose
-  private_subnet_cidr                     = local.private_subnet_cidr  # for private instance sg purpose
-  #private_subnet_ids                      = local.private_subnet_ids #module.vpc.private_subnet_ids # for private instance sg purpose
+  public_subnet_ID_to_launch_nat_instance = local.public_subnet_ids[0] 
+  public_subnet_cidr                      = local.public_subnet_cidr   # for private instance sg purpose
+  private_subnet_cidr                     = local.private_subnet_cidr  # for databse instance sg purpose
+  # private_subnet_ids                      = local.private_subnet_ids #module.vpc.private_subnet_ids 
   remote_ip_to_connect_nat_instance = "49.204.160.226/32"
 
   is_nat_instance = true
