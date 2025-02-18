@@ -28,7 +28,7 @@ variable "availability_zone" {}
 variable "multi_az" { default = false}
 variable "db_name" { default = ""}
 variable "skip_final_snapshot" { default = true }
-variable "instance_class" { default = "db.t2.micro" }
+variable "instance_class" { default = "db.t3.micro" }
 variable "allocated_storage" { 
     type = number
     default = 8
