@@ -17,7 +17,7 @@ variable "db_subnet_group_name" {}
 
 variable "engine" {}
 variable "engine_version" {}
-variable "identifier" {}
+# variable "identifier" {}
 variable "username" {}
 variable "password" {}
 variable "availability_zone" {}
