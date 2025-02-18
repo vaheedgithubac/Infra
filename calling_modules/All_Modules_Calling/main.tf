@@ -1,19 +1,31 @@
-# VPC-MODULE Calling
-module "vpc" {
-  source = "git::https://github.com/vaheedgithubac/Infra//modules/vpc"  # Give the path to VPC MODULE accordingly
-
-  project_name = var.project_name
-  env          = var.env
-  common_tags  = var.common_tags
-
-  # All the counts should be same 
-  azs_count             = 2
-  public_subnet_count   = 2
-  private_subnet_count  = 2
-  database_subnet_count = 2
-
-  vpc_cidr     = "10.100.0.0/16"
-  public_subnet_cidr   = ["10.100.1.0/24", "10.100.2.0/24"]
-  private_subnet_cidr  = ["10.100.11.0/24", "10.100.12.0/24"]
-  database_subnet_cidr = ["10.100.31.0/24", "10.100.32.0/24"]
+data "aws_ssm_parameter" "vpc_id" {
+  name       = "/${var.project_name}/${var.env}/vpc_id"
+  depends_on = [module.vpc]
 }
+
+data "aws_ssm_parameter" "vpc_cidr" {
+  name       = "/${var.project_name}/${var.env}/vpc_cidr"
+  depends_on = [module.vpc]
+}
+
+data "aws_ssm_parameter" "public_subnet_cidr" {
+  name       = "/${var.project_name}/${var.env}/public_subnet_cidr"
+  depends_on = [module.vpc]
+}
+
+data "aws_ssm_parameter" "private_subnet_cidr" {
+  name       = "/${var.project_name}/${var.env}/private_subnet_cidr"
+  depends_on = [module.vpc]
+}
+
+data "aws_ssm_parameter" "public_subnet_ids" {
+  name       = "/${var.project_name}/${var.env}/public_subnet_ids"
+  depends_on = [module.vpc]
+}
+
+# data "aws_ssm_parameter" "private_subnet_ids" {
+#   name       = "/${var.project_name}/${var.env}/private_subnet_ids"
+#   depends_on = [module.vpc]
+# }
+
+
