@@ -1,4 +1,9 @@
 # Storing parameters in AWS SSM PARAMETER STORE 
+resource "aws_ssm_parameter" "azs" {
+  type  = "StringList"
+  name  = "/${var.project_name}/${var.env}/availability_zones"
+  value = join(",", local.azs)
+}
 
 resource "aws_ssm_parameter" "vpc_cidr" {
   type  = "String"
