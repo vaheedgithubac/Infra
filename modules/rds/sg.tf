@@ -17,6 +17,6 @@ resource "aws_security_group_rule" "remote_admin" {
   from_port         = 3306
   to_port           = 3306
   protocol          = "tcp"
-  cidr_blocks       = var.private_subnet_cidr     
+  cidr_blocks       = [var.private_subnet_cidr]     
   security_group_id = module.mysql_sg.sg_id     # aws_security_group.sg_nat_instance.id
 }
