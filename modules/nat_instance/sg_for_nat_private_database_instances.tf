@@ -52,7 +52,7 @@ resource "aws_security_group_rule" "vpc-inbound" {
 }
 
 # Private instances security group rule to allow all traffic from public subnets ( Public Subnets ---> Private Subnets ) 
-resource "aws_security_group_rule" "private-subnet1-inbound" {
+resource "aws_security_group_rule" "private-subnet-inbound" {
   type              = "ingress"
   from_port         = 0
   to_port           = 0
@@ -62,7 +62,7 @@ resource "aws_security_group_rule" "private-subnet1-inbound" {
 }
 
 # Database Instances security group rule to allow traffic from Private Subnets ( Private Subnets ---> Database Subnets )
-resource "aws_security_group_rule" "vpc-inbound" {
+resource "aws_security_group_rule" "database-inbound" {
   type              = "ingress"
   from_port         = 0
   to_port           = 0
@@ -70,3 +70,5 @@ resource "aws_security_group_rule" "vpc-inbound" {
   cidr_blocks       = var.private_subnet_cidr
   security_group_id = module.database_sg.sg_id    # aws_security_group.sg_nat_instance.id
 }
+
+# All the outbound rules for each security group will be automatically set when we call security group module ( we have already defined there )
