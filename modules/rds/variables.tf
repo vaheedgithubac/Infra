@@ -20,10 +20,10 @@ variable "engine_version" {}
 variable "identifier" {}
 variable "username" {}
 variable "password" {}
-variable "allocated_storage" {}
+variable "availability_zone" {}
 # variable "db_subnet_group_name" {}
 # variable "vpc_security_group_ids" {}
-variable "availability_zone" {}
+
 
 variable "multi_az" { default = false}
 variable "db_name" { default = ""}
