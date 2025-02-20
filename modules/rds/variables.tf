@@ -9,10 +9,8 @@ variable "common_tags" {
     Terraform   = "true"
   }
 }
-
 ###########################################       RDS variables    #########################################
-variable "database_subnet_ids" {}  # For subnet group creation
-variable "private_subnet_cidr" {}  # SG purpose
+variable "database_subnet_ids" { type = list }  # For subnet group creation
 variable "db_subnet_group_name" {}
 
 variable "engine" {}
@@ -21,20 +19,14 @@ variable "identifier" {}
 variable "username" {}
 variable "password" {}
 variable "availability_zone" {}
-variable "instance_class" {}   # default = "db.t3.micro" }
-# variable "db_subnet_group_name" {}
-# variable "vpc_security_group_ids" {}
-
-### Default values for RDS
-variable "multi_az" { default = false}
-variable "db_name" { default = ""}
-variable "skip_final_snapshot" { default = true }
-
-variable "allocated_storage" { 
-    type = number
-    default = 8
-}
-
+variable "instance_class" {}         # "db.t3.micro" 
+variable "multi_az" {}               # false
+variable "db_name" {}                # null
+variable "skip_final_snapshot" {}    # true
+variable "deletion_protection" {}    # false
+variable "allocated_storage" { type = number }  # 8 (means 8GB)
+variable "vpc_security_group_ids" { type = list }
+# variable "port" {}                   # 3306
 ############################################# SG variables ############################################
 variable "sg_name" {}
 variable "sg_description" {}
