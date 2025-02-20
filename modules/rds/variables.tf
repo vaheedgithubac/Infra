@@ -24,7 +24,7 @@ variable "availability_zone" {}
 # variable "db_subnet_group_name" {}
 # variable "vpc_security_group_ids" {}
 
-
+### Default values for RDS
 variable "multi_az" { default = false}
 variable "db_name" { default = ""}
 variable "skip_final_snapshot" { default = true }
