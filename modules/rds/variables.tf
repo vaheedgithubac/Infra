@@ -27,7 +27,5 @@ variable "deletion_protection" {}    # false
 variable "allocated_storage" { type = number }  # 8 (means 8GB)
 variable "vpc_security_group_ids" { type = list }
 # variable "port" {}                   # 3306
-############################################# SG variables ############################################
-variable "sg_name" {}
-variable "sg_description" {}
-variable "vpc_id" {}
+#############################################################################################################
+
