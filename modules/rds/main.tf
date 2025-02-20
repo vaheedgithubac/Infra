@@ -7,7 +7,7 @@ resource "aws_db_subnet_group" "database_subnet_group" {
   tags = merge(
     var.common_tags,
     {
-        Name = "${var.project_name}-${var.env}"
+        Name = "${local.resource_name}-${var.db_subnet_group_name}"
     }
   )
 }
@@ -27,4 +27,12 @@ resource "aws_db_instance" "db_instance" {
   availability_zone       = var.availability_zone
   db_name                 = var.db_name
   skip_final_snapshot     = var.skip_final_snapshot
+
+  tags = merge(
+    var.common_tags,
+    {
+        Name = "${local.resource_name}-${var.identifier}"
+    }
+  )
+}
 }
