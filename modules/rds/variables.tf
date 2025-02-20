@@ -17,10 +17,11 @@ variable "db_subnet_group_name" {}
 
 variable "engine" {}
 variable "engine_version" {}
-# variable "identifier" {}
+variable "identifier" {}
 variable "username" {}
 variable "password" {}
 variable "availability_zone" {}
+variable "instance_class" {}   # default = "db.t3.micro" }
 # variable "db_subnet_group_name" {}
 # variable "vpc_security_group_ids" {}
 
@@ -28,7 +29,7 @@ variable "availability_zone" {}
 variable "multi_az" { default = false}
 variable "db_name" { default = ""}
 variable "skip_final_snapshot" { default = true }
-variable "instance_class" { default = "db.t3.micro" }
+
 variable "allocated_storage" { 
     type = number
     default = 8
