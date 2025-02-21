@@ -1,3 +1,4 @@
+# Ensure once if it gives free tier images
 data "aws_ami" "amzn_linux_2023_ami" {
   most_recent      = true
   owners           = ["amazon"]
