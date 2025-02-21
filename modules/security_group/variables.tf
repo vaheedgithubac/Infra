@@ -1,14 +1,11 @@
 ##################################  Mandatory Variables  ####################################
-variable "project_name" {}
-
-variable "env" {}
-
 variable "sg_name"{}
-
 variable "sg_description" {}
-
 variable "vpc_id" {}
 
+### Tags
+variable "project_name" {}
+variable "env" {}
 variable "common_tags" {
     type = map
 }
