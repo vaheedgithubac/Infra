@@ -2,7 +2,7 @@ resource "aws_instance" "ec2_instance" {
   ami                         = var.ami_id
   instance_type               = var.instance_type
   key_name                    = var.public_key_name
-  vpc_security_group_ids      = [var.sg_id]
+  vpc_security_group_ids      = var.sg_id      # for multiple values        # [var.sg_id] --> for single value
   subnet_id                   = var.subnet_id
   associate_public_ip_address = var.associate_public_ip_address
   iam_instance_profile        = var.iam_instance_profile
