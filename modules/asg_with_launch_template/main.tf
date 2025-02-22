@@ -12,13 +12,9 @@ resource "aws_launch_template" "launch_template" {
 
   user_data = filebase64(var.user_data)         #filebase64("${path.module}/${var.user_data}")   
 
-  iam_instance_profile {
-    name = var.iam_instance_profile
-  }
-
-  network_interfaces {
-    associate_public_ip_address = var.associate_public_ip_address
-  }
+  ebs { volume_size = 20 }
+  iam_instance_profile { name = var.iam_instance_profile }
+  network_interfaces { associate_public_ip_address = var.associate_public_ip_address }
 
 #   monitoring { enabled = true }
 
