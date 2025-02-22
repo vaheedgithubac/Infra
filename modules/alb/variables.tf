@@ -1,6 +1,6 @@
 variable "internal" {}
-variable "alb_sg_ids" {}
-variable "subnets" {}
+variable "alb_sg_ids" { type = list }
+variable "subnets" { type = list }
 variable "vpc_id" {}
 
 variable "project_name" {}
