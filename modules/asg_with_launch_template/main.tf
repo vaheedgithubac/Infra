@@ -39,8 +39,8 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   desired_capacity          = 2 # starting of the auto scaling group
   health_check_grace_period = 60
   health_check_type         = "ELB"
-  target_group_arns         = [var.target_group_arns] # attaches target group to ASG
-  #force_delete              = true
+  target_group_arns         = var.target_group_arns              # [var.target_group_arns] # attaches target group to ASG
+  # force_delete              = true
 
   launch_template {
     id      = aws_launch_template.launch_template.id
