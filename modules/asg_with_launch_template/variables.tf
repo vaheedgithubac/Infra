@@ -14,6 +14,7 @@ variable "lt_tags" {
   default = {}
 }
 
+### Tags
 variable "project_name" {}
 variable "env" {}
 variable "common_tags" { type = map(any) }
