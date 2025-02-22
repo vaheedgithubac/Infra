@@ -1,5 +1,5 @@
 variable "internal" {}
-variable "alb_security_group_id" {}
+variable "alb_sg_id" {}
 variable "subnets" {}
 variable "vpc_id" {}
 
