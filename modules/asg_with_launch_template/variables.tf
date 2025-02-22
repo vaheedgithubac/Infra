@@ -3,7 +3,7 @@ variable "sg_id" {}
 variable "key_name" {}
 variable "instance_type" {}
 variable "asg_type" {}                              # frontend / backend
-variable "target_group_arns" {}                     # For attaching ec2 instances
+variable "target_group_arns" { type = list }                     # For attaching ec2 instances
 variable "vpc_zone_identifier" { type = list(any) } # private / public  subnet_ids to launch ASG
 variable "associate_public_ip_address" { type = bool }
 
