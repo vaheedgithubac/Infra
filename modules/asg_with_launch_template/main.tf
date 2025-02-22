@@ -10,7 +10,7 @@ resource "aws_launch_template" "launch_template" {
   update_default_version = true
   vpc_security_group_ids = [var.sg_id]
 
-  user_data = filebase64(var.user_data)         #filebase64("${path.module}/${var.user_data}")   
+  user_data = filebase64(var.user_data)         # filebase64("${path.module}/${var.user_data}")   
 
   ebs { volume_size = 8 }
   iam_instance_profile { name = var.iam_instance_profile }
