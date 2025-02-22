@@ -7,8 +7,8 @@ variable "target_group_arns" {}                     # For attaching ec2 instance
 variable "vpc_zone_identifier" { type = list(any) } # private / public  subnet_ids to launch ASG
 variable "associate_public_ip_address" { type = bool }
 
-variable "user_data" { default = "" }
-variable "iam_instance_profile" { default = "" }
+variable "user_data" { default = null }
+variable "iam_instance_profile" { default = null }
 variable "lt_tags" {
   type    = map(any)
   default = {}
