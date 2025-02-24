@@ -1,4 +1,4 @@
-
+# returns entire ec2_instance object which contains private_ip, public_ip, instance_id ... etc
 output "ec2_instance" {
   value = aws_instance.ec2_instance
 }
