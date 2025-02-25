@@ -45,7 +45,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
 
   lifecycle {
     create_before_destroy = true
-    # ignore_changes        = [target_group_arns]
+    ignore_changes        = [ desired_capacity, target_group_arns ]
   }
 
 }
