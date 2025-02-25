@@ -18,8 +18,8 @@ variable "is_nat_instance" {
 }
 variable "associate_public_ip_address" { default = false }
 variable "ec2_tags" { default = {} } 
-variable "iam_instance_profile" { default = "" }
-variable "user_data" { default = "" }
+variable "iam_instance_profile" { default = null }
+variable "user_data" { default = null }
 
 variable "root_volume_size" {
   type = number
