@@ -13,7 +13,7 @@ resource "aws_lb" "application_load_balancer" {
     var.alb_tags,
     var.common_tags,
     {
-      Name = "${var.alb_type}-${var.project_name}-${var.env}-alb"
+      Name = "${local.alb_type}-${var.project_name}-${var.env}-alb"
     }
   )
 }
