@@ -12,7 +12,6 @@ resource "aws_launch_template" "launch_template" {
 
   user_data = var.user_data != null ? filebase64(var.user_data) : var.user_data         # filebase64("${path.module}/${var.user_data}")   
 
-  ebs { volume_size = 8 }
   iam_instance_profile { name = var.iam_instance_profile }
   network_interfaces { associate_public_ip_address = var.associate_public_ip_address }
 
