@@ -8,6 +8,6 @@ variable "env" {}
 variable "common_tags" { type = map }
 
 variable "alb_tags" {
-  type    = map()
+  type    = map
   default = {}
 }
