@@ -14,7 +14,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
     version = "$Latest"
   }
   
-  vpc_zone_identifier       = var.vpc_zone_identifier        # [var.vpc_zone_identifier]  # list of private / public  subnet_ids to launch ASG
+  vpc_zone_identifier       = var.vpc_zone_identifier        # [var.vpc_zone_identifier]  # list of public / private  subnet_ids to launch ASG
 
 #Automatically refresh all instances after the group is updated
   
