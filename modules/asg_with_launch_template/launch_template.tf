@@ -4,7 +4,7 @@ resource "aws_launch_template" "launch_template" {
   name                                 = local.launch_template_name
   image_id                             = var.image_id   #aws_ami_from_instance.backend.id
   instance_type                        = var.instance_type
-  key_name                             = var.key_name    # The key name to use for the instance
+  key_name                             = var.key_name    # The public key name to use for the instance
   instance_initiated_shutdown_behavior = "terminate"
 
   update_default_version = true
