@@ -8,12 +8,15 @@ resource "aws_launch_template" "launch_template" {
   instance_initiated_shutdown_behavior = "terminate"
 
   update_default_version = true
-  vpc_security_group_ids = var.vpc_security_group_ids 
+  # vpc_security_group_ids = var.vpc_security_group_ids 
 
   user_data = var.user_data != null ? filebase64(var.user_data) : var.user_data         # filebase64("${path.module}/${var.user_data}")   
 
   iam_instance_profile { name = var.iam_instance_profile }
-  network_interfaces { associate_public_ip_address = var.associate_public_ip_address }
+  network_interfaces { 
+      security_groups             = var.vpc_security_group_ids
+      associate_public_ip_address = var.associate_public_ip_address 
+  }
 
 #   monitoring { enabled = true }
 
