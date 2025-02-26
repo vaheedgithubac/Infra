@@ -24,7 +24,7 @@ resource "aws_launch_template" "launch_template" {
       var.lt_tags,
       var.common_tags,
       {
-          Name = "asg-${local.launch_template_name}"
+          Name = local.resource_name
       }
     )
   }
