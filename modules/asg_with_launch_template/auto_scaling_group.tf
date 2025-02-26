@@ -2,7 +2,7 @@
 resource "aws_autoscaling_group" "autoscaling_group" {
   name                      = local.auto_scaling_group_name
   min_size                  = 1
-  max_size                  = 3
+  max_size                  = 2
   desired_capacity          = 1 # starting of the auto scaling group
   health_check_grace_period = 60
   health_check_type         = "ELB"
