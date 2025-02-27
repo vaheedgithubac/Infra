@@ -1,11 +1,11 @@
 # Create Auto Scaling Group-ASG
 resource "aws_autoscaling_group" "autoscaling_group" {
   name                      = local.auto_scaling_group_name
-  min_size                  = 1
-  max_size                  = 2
-  desired_capacity          = 1 # starting of the auto scaling group
-  health_check_grace_period = 60
-  health_check_type         = "ELB"
+  min_size                  = var.min_size
+  max_size                  = var.max_size
+  desired_capacity          = var.desired_capacity               # starting of the auto scaling group
+  health_check_grace_period = var.health_check_grace_period
+  health_check_type         = var.health_check_type
   target_group_arns         = var.target_group_arns              # [var.target_group_arns] # attaches target group to ASG
   # force_delete              = true
 
