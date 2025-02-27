@@ -22,7 +22,6 @@ variable "min_size" {}
 variable "max_size" {}
 variable "desired_capacity" {}
 variable "health_check_grace_period" {}
-variable "desired_capacity" {}
 variable "health_check_type" { default = "ELB" }
 
 variable "asg_type" {}                              # frontend / backend
