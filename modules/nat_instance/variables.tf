@@ -20,7 +20,6 @@ variable "common_tags" {
 variable "remote_ip_to_connect_nat_instance" {}
 variable "vpc_cidr" {}
 
-
 #############  EC2-MODULE related variables   #################################
 # variable "project_name" {}
 # variable "env" {}
