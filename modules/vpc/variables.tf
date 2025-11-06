@@ -2,10 +2,12 @@
 variable "vpc_cidr" {}
 variable "project_name" {}
 variable "env" {}
+
 variable "vpc_count" {
   type = number
   default = 1
 }
+
 # Tag related variable
 variable "common_tags" {
   type = map
@@ -19,6 +21,11 @@ variable "create_nat_gateway" {
 variable "create_nat_instance" {
   type = bool
   default = false
+}
+
+variable "map_public_ip_on_launch" {
+  type = bool
+  default = true
 }
 
 ####################################################################
