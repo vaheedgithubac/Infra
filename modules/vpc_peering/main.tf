@@ -1,6 +1,6 @@
 resource "aws_vpc_peering_connection" "peering" {
 
-  vpc_id      = data.aws_ssm_parameter.requester_vpc_id.value
+  vpc_id      = var.
   peer_vpc_id = data.aws_ssm_parameter.accepter_vpc_id.value
   auto_accept = true
 
