@@ -14,7 +14,9 @@ variable "common_tags" {
 # variable "project_name" {}
 # variable "env" {}
 # variable "common_tags" { type = map }
-# variable "vpc_id" {}  already declared above for other purpose
+# variable "vpc_id" {}  
+# already declared above variables for other purpose
+
 variable "remote_ip_to_connect_nat_instance" {}
 variable "vpc_cidr" {}
 
