@@ -1,5 +1,5 @@
 ###############################################################################
-# DATA SOURCES: Fetch VPC Details
+# DATA SOURCES: Fetch VPC Details (like cidr_block and many more)
 ###############################################################################
 
 data "aws_vpc" "requester" {
