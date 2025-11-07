@@ -15,17 +15,17 @@ data "aws_vpc" "accepter" {
 ###############################################################################
 
 data "aws_route_tables" "requester" {
-  # vpc_id = var.requester_vpc_id
-  filter {
-    name   = "vpc-id"
-    values = [var.requester_vpc_id]
-  }
+  vpc_id = var.requester_vpc_id
+  #filter {
+  #  name   = "vpc-id"
+  #  values = [var.requester_vpc_id]
+  #}
 }
 
 data "aws_route_tables" "accepter" {
-  # vpc_id = var.accepter_vpc_id
-  filter {
-    name   = "vpc-id"
-    values = [var.accepter_vpc_id]
-  }
+  vpc_id = var.accepter_vpc_id
+  #filter {
+  #  name   = "vpc-id"
+  #  values = [var.accepter_vpc_id]
+  #}
 }
