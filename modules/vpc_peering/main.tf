@@ -12,18 +12,18 @@ resource "aws_vpc_peering_connection" "peering" {
 
 # updating destination vpc_cidr route in all the route tables of "requester vpc"
 resource "aws_route" "requester" {
-  for_each = toset(data.aws_route_tables.requester.ids)
+  count = length(local.requester_vpc_route_table_ids)
 
-  route_table_id         = each.value                                  
+  route_table_id         = local.requester_vpc_route_table_ids[count.index]                                  
   destination_cidr_block = data.aws_vpc.accepter.cidr_block     
   vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
 }
 
 # updating destination vpc_cidr route in all the route tables of "accepter vpc"
 resource "aws_route" "accepter" {
-  for_each = toset(data.aws_route_tables.accepter.ids)
+  count = length(local.accepter_vpc_route_table_ids)
 
-  route_table_id         = each.value                                    
+  route_table_id         = local.accepter_vpc_route_table_ids[count.index]                                    
   destination_cidr_block = data.aws_vpc.requester.cidr_block      
   vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
 
