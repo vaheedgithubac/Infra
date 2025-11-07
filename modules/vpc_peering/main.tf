@@ -13,7 +13,7 @@ resource "aws_vpc_peering_connection" "peering" {
 # updating destination vpc_cidr route in all the route tables of "requester vpc"
 resource "aws_route" "requester" {
   #count = length(tolist(local.requester_vpc_route_table_ids))
-  count = length(var.requester_vpc_route_table_ids)
+  count = length(local.requester_vpc_route_table_ids)
 
   route_table_id         = tolist(local.requester_vpc_route_table_ids)[count.index]                            # local.requester_vpc_route_table_ids[count.index]                                  
   destination_cidr_block = local.accepter_vpc_cidr                 # data.aws_vpc.accepter.cidr_block     
@@ -23,7 +23,7 @@ resource "aws_route" "requester" {
 # updating destination vpc_cidr route in all the route tables of "accepter vpc"
 resource "aws_route" "accepter" {
   #count = length(tolist(local.accepter_vpc_route_table_ids))
-  count = length(var.accepter_vpc_route_table_ids) 
+  count = length(local.accepter_vpc_route_table_ids) 
 
   route_table_id         = tolist(local.accepter_vpc_route_table_ids)[count.index]                            # local.accepter_vpc_route_table_ids[count.index]                                    
   destination_cidr_block = local.requester_vpc_cidr                # data.aws_vpc.requester.cidr_block      
