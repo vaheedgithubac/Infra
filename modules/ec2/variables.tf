@@ -31,7 +31,7 @@ variable "instance_type" {
     default = "t2.micro"
     validation {
       condition     = contains(["t2.micro", "t2.small", "t2.medium"], var.instance_type)
-        error_message = "Valid values for instance type are: t2.micro t2.small t2.medium"
+      error_message = "Valid values for instance type are: t2.micro t2.small t2.medium"
     } 
 }
 
