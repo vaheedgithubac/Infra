@@ -47,7 +47,7 @@ resource "aws_instance" "ec2_instance" {
 
 #  domain   = "vpc"
 #  instance = aws_instance.ec2_instance.id
-  # network_interface = aws_instance.ec2_instance.primary_network_interface_id
+#  network_interface = aws_instance.ec2_instance.primary_network_interface_id
 #}
 
 
