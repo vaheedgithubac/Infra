@@ -5,6 +5,7 @@ variable "ami_id" {}
 variable "public_key_name" {}
 variable "sg_id" {}
 variable "subnet_id" {}
+
 variable "project_name" {}
 variable "env" {}
 variable "common_tags" { type = map }
