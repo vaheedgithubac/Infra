@@ -14,6 +14,10 @@ output "private_subnet_ids" {
   value = aws_subnet.private.*.id
 }
 
+output "database_subnet_ids" {
+  value = aws.subnet.database[*].id
+}
+
 # This returns entire internet_gateway object, if you want only id then use "aws_internet_gateway.internet_gateway.id"
 output "internet_gateway" {
   value = aws_internet_gateway.internet_gateway
