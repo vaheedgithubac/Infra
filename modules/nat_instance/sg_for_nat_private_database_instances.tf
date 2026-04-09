@@ -20,7 +20,7 @@ module "private_sg" {
     common_tags = var.common_tags
 }
 
-# Security group for Private Subnet Instances
+# Security group for Database Subnet Instances
 module "database_sg" {
     source = "git::https://github.com/vaheedgithubac/Infra.git//modules/security_group"
     project_name = var.project_name
