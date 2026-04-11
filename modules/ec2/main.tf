@@ -10,7 +10,7 @@ resource "aws_instance" "ec2_instance" {
   user_data                   = var.is_nat_instance ? file("${path.module}/nat_user_data.sh") : var.user_data
   
   # If 'source_dest_check = false' --> NAT Instance. 
-  # If 'source_dest_check = true' --> Normal Instance
+  # If 'source_dest_check = true'  --> Normal Instance.
   source_dest_check           = var.is_nat_instance ? false : true
 
   root_block_device {
